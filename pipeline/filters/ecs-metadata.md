@@ -37,7 +37,7 @@ The following template variables can be used for values with the `Add` option. S
 
 #### Example 1: Attach Task ID and cluster name to container logs
 
-```text
+```text copy
 [INPUT]
     Name                tail
     Tag                 ecs.*
@@ -79,7 +79,7 @@ The output log should be similar to:
 
 #### Example 2: Attach customized resource name to container logs
 
-```text
+```text copy
 [INPUT]
     Name                tail
     Tag                 ecs.*
@@ -124,7 +124,7 @@ Notice that the template variables in the value for the `resource` key are separ
 
 This examples shows a use case for the `Cluster_Metadata_Only` option- attaching cluster metadata to ECS Agent logs. 
 
-```text
+```text copy
 [INPUT]
     Name                tail
     Tag                 ecsagent.*
@@ -152,10 +152,11 @@ This examples shows a use case for the `Cluster_Metadata_Only` option- attaching
 
 #### Example 4: Attach task metadata using container ID field
 
-Attaches the cluster metadata, as well as task metadata using the already populated field `container_id` containing the
-container ID to query the ECS introspection endpoint. In this configuration the tag can be set to anything.
+Attaches the cluster metadata and task metadata using the populated `container_id`
+field, which includes the container ID to query the ECS introspection endpoint. In this
+configuration the tag of the incoming log record can be set to anything.
 
-```text
+```text copy
 [INPUT]
   Name   forward
   Listen 0.0.0.0
